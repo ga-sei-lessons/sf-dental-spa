@@ -6,6 +6,8 @@ import Header from './components/layout/Header'
 import NotFound from './components/pages/NotFound'
 import Add from './components/pages/Add'
 import Service from './components/pages/Service'
+import Classes from'./components/pages/Classes'
+import GetIdFromParams from './components/GetIdFromParams';
 // three things needed to define routes with react-router-dom
 import {
   BrowserRouter as Router, // alias browser router => router
@@ -57,6 +59,10 @@ function App() {
               element={<Add />}
             />
 
+            <Route 
+              path="/classes/:classId"
+              element={<GetIdFromParams ClassComponent={Classes} />}
+            />
             {/* 404 ROUTE MUST BE ON BOTTOM */}
             <Route 
               path='*'
