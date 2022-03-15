@@ -2,7 +2,6 @@ import './App.css';
 import Home from './components/pages/Home'
 import Services from './components/pages/Services'
 import Contact from './components/pages/Contact'
-import Header from './components/layout/Header'
 import NotFound from './components/pages/NotFound'
 import Add from './components/pages/Add'
 import Service from './components/pages/Service'
