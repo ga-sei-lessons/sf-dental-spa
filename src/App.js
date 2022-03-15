@@ -4,12 +4,15 @@ import Services from './components/pages/Services'
 import Contact from './components/pages/Contact'
 import Header from './components/layout/Header'
 import NotFound from './components/pages/NotFound'
+import Add from './components/pages/Add'
+import Service from './components/pages/Service'
 // three things needed to define routes with react-router-dom
 import {
   BrowserRouter as Router, // alias browser router => router
   Routes,
   Route
 } from 'react-router-dom'
+import serviceDetails from './data/serviceDetails'
 
 function App() {
   return (
@@ -29,14 +32,29 @@ function App() {
             />
           
             <Route 
-              path="/services"
-              element={<Services />}
+              exact path="/services"
+              element={<Services services={serviceDetails} />}
             />
 
-            
+            {/* 
+            details pages in react router rules
+            rule 1: the details page should be /page/:id
+            rule 2: you need to exact path the less specific page
+            rule 3: both paths shoud be given the same props
+            rule 4: pls never send data through react router dom links (in react/stateful app state is alwyas the single source of truth)
+            */}
             <Route 
-              path="/contact/"
+              path="services/:id"
+              element={<Service services={serviceDetails}/>}
+            />           
+            <Route 
+              path="/contact"
               element={<Contact />}
+            />
+
+            <Route 
+              path="/add/:x/:y" // /add/10/30 => 40
+              element={<Add />}
             />
 
             {/* 404 ROUTE MUST BE ON BOTTOM */}
